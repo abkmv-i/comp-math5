@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css"
+          integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js"
+            integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O"
+            crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js"
+            integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+    <style>
+
+        .input {
+            background: #3FD2A3; /* Цвет фона */
+            border: 1px solid #7a7b7e; /* Параметры рамки */
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 0 4px 3px #7a7b7e;
+            font-size: 25px;
+        }
+
+        h2 {
+            color: #19674D;
+            text-align: center;
+        }
+
+        table {
+            color: #19674D;
+            padding: 2px;
+            font-size: 25px;
+            width: 100%;
+        }
+
+        th, td, tr {
+            font-size: 25px;
+            text-align: center;
+            width: auto;
+        }
+
+        .but {
+            background: #3FD2A3; /* Цвет фона */
+            border: 1px solid #7a7b7e; /* Параметры рамки */
+            border-radius: 30px;
+            box-shadow: 0 0 4px 5px #7a7b7e; /* Параметры свечения */
+            font-size: 25px;
+            text-decoration: none;
+            padding: 10px;
+            color: #19674D;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+<form action="#" th:action="@{/resultFunc}" th:object="${form}" th:method="GET">
+    <h2>Методы решения:</h2><br>
+    <br>
+    <table>
+        <tr>
+            <td>
+                <div class="input">
+                    <p/>Многочлен Лагранжа<br><br>
+                </div>
+            </td>
+            <td>
+                <div class="input">
+                    <p/>Многочлен Ньютона<br><br>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Выбор функции:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <label>1:</label>
+                    <input type="radio" th:field="*{numberOfFunction}" value="1"/>
+                    \(y = \sqrt{\smash[b]{x}}\)
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>2:</label>
+                    <input type="radio" th:field="*{numberOfFunction}" value="2"/>
+                    \(x^2 + 3*x - 2\)
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>3:</label>
+                    <input type="radio" th:field="*{numberOfFunction}" value="3"/>
+                    \(y = \sin(x)\)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Введите значения x0:
+                <input type="number" th:field="*{inputData}" step="any"/><br>
+                Введите значения xn:
+                <input type="number" th:field="*{inputData}" step="any"/><br>
+                Введите количество точек:
+                <input type="number" th:field="*{inputData}" step="any"/><br>
+            </td>
+            <td>
+                Введите х:
+                <input type="number" th:field="*{x}" step="any"/>
+                <p></p>
+            </td>
+            <td>
+                <input class="but" type="submit" value="Расчитать"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

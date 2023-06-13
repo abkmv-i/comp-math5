@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        h2 {
+            color: #19674D;
+            text-align: center;
+        }
+
+        table {
+            color: #19674D;
+            padding: 2px;
+            font-size: 25px;
+            width: 100%;
+        }
+
+        th, td, tr {
+            font-size: 25px;
+            text-align: center;
+            width: auto;
+        }
+
+        .but {
+            background: #3FD2A3; /* Цвет фона */
+            border: 1px solid #7a7b7e; /* Параметры рамки */
+            border-radius: 30px;
+            box-shadow: 0 0 4px 5px #7a7b7e; /* Параметры свечения */
+            font-size: 25px;
+            text-decoration: none;
+            padding: 10px;
+            color: #19674D;
+            text-align: center;
+        }
+
+        .imgs {
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/resultFiles}" th:object="${file}" th:method="GET" enctype="multipart/form-data">
+    <div class="file level-item">
+        <label class="file-label">
+            <input id="file_input" class="but" type="file" th:field="*{fileName}"/><br><br>
+        </label>
+    </div>
+    <span class="title is-3" style="color: red" id="error-file"></span>
+    <input class="but" type="submit" value="Расчитать"/>
+</form>
+</body>
+</html>
